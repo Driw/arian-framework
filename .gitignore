@@ -1,0 +1,8 @@
+# Mega
+*/Rubbish
+
+# Java Binary Builds
+/arien-core/target
+/arien-engine/target
+/arien-lwjgl/target
+/arien-resource/target
