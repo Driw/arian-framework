@@ -1,85 +1,33 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<properties>
-		<java.version>11</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<junit.jupiter.versions>5.4.0</junit.jupiter.versions>
-		<junit.platform.versions>1.4.1</junit.platform.versions>
-		<maven.build.version>3.1</maven.build.version>
-		<arien.version>0.1.0</arien.version>
-		<scarlet.version>0.1.0</scarlet.version>
-	</properties>
+	<parent>
+		<groupId>br.com.arienframework</groupId>
+		<artifactId>arien-framework</artifactId>
+		<version>0.1.0</version>
+	</parent>
 
-	<groupId>br.com.arienframework</groupId>
 	<artifactId>arien-resource</artifactId>
-	<version>0.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>Arien Resource</name>
 	<description>The resource module contains all common resource files loaders to textures, shaders, audios and meshes.</description>
 	<url>http://core.arien.com.br</url>
 
-	<organization>
-		<name>Arien Core</name>
-		<url>https://arien.com.br</url>
-	</organization>
-
-	<issueManagement>
-		<system>Github</system>
-		<url>https://github.com/diverproject/arien-core/issues</url>
-	</issueManagement>
-
 	<dependencies>
-		<!-- Arien -->
+		<!-- Arien Framework -->
+
 		<dependency>
 			<groupId>br.com.arienframework</groupId>
 			<artifactId>arien-core</artifactId>
-			<version>0.1.0</version>
-			<scope>compile</scope>
-		</dependency>
-		<!-- Scarlet -->
-		<dependency>
-			<groupId>org.diverproject</groupId>
-			<artifactId>scarlet-core</artifactId>
-			<version>${scarlet.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.diverproject</groupId>
-			<artifactId>scarlet-logger</artifactId>
-			<version>${scarlet.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.diverproject</groupId>
-			<artifactId>scarlet-stream</artifactId>
-			<version>${scarlet.version}</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.diverproject</groupId>
-			<artifactId>scarlet-context</artifactId>
-			<version>${scarlet.version}</version>
+			<version>${arien.version}</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven.build.version}</version>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-			</plugin>
-		</plugins>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<testSourceDirectory>src/test/java</testSourceDirectory>
 		<resources>
