@@ -1,6 +1,9 @@
 # Mega
 */Rubbish
 
+# IntelliJ
+.idea
+
 # Java Binary Builds
 /arien-core/target
 /arien-engine/target
