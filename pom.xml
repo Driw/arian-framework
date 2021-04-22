@@ -10,11 +10,12 @@
 		<arien.version>0.1.0</arien.version>
 		<!-- Main Dependencies -->
 		<lwjgl.version>3.2.3</lwjgl.version>
-		<scarlet.version>0.2.0</scarlet.version>
+		<lwjgl.natives>natives-windows</lwjgl.natives>
+		<scarlet.version>0.2.1</scarlet.version>
 		<!-- Test -->
 		<junit.jupiter.version>5.7.0</junit.jupiter.version>
 		<mockito.version>3.5.13</mockito.version>
-		<junit.platform.version>1.4.1</junit.platform.version>
+		<junit.platform.version>1.7.0</junit.platform.version>
 		<!-- Sonar -->
 		<jacoco.version>0.8.6</jacoco.version>
 		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
@@ -50,19 +51,21 @@
 	</modules>
 
 	<dependencies>
-		<!-- Scarlet -->
-
+		<!-- Scarlet Framework -->
 		<dependency>
 			<groupId>org.diverproject</groupId>
 			<artifactId>scarlet-core</artifactId>
 			<version>${scarlet.version}</version>
-			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.diverproject</groupId>
-			<artifactId>scarlet-stream</artifactId>
+			<artifactId>scarlet-logger</artifactId>
 			<version>${scarlet.version}</version>
-			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.diverproject</groupId>
+			<artifactId>scarlet-context</artifactId>
+			<version>${scarlet.version}</version>
 		</dependency>
 
 		<!-- LWJGL -->
@@ -74,7 +77,25 @@
 			<version>${lwjgl.version}</version>
 			<scope>compile</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.lwjgl</groupId>
+			<artifactId>lwjgl-opengl</artifactId>
+			<version>${lwjgl.version}</version>
+			<classifier>${lwjgl.natives}</classifier>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.lwjgl/lwjgl-opengl -->
+		<dependency>
+			<groupId>org.lwjgl</groupId>
+			<artifactId>lwjgl</artifactId>
+			<version>${lwjgl.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.lwjgl</groupId>
+			<artifactId>lwjgl</artifactId>
+			<version>${lwjgl.version}</version>
+			<classifier>${lwjgl.natives}</classifier>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.lwjgl/lwjgl-glfw -->
 		<dependency>
 			<groupId>org.lwjgl</groupId>
@@ -82,9 +103,52 @@
 			<version>${lwjgl.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.lwjgl</groupId>
+			<artifactId>lwjgl-glfw</artifactId>
+			<version>${lwjgl.version}</version>
+			<classifier>${lwjgl.natives}</classifier>
+		</dependency>
+
+		<!-- Utility -->
+
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.16</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>2.0.0-alpha1</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
 
 		<!-- JUnit -->
 
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
 		<dependency>
 			<groupId>org.junit.platform</groupId>
@@ -104,6 +168,30 @@
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-engine</artifactId>
 			<version>${junit.platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Mockito -->
+
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-inline -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-inline</artifactId>
+			<version>${mockito.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -190,7 +278,7 @@
 		<repository>
 			<id>github-diverproject</id>
 			<name>github-diverproject-releases</name>
-			<url>http://kubernetes.docker.internal:33003/repository/github-releases/</url>
+			<url>http://kubernetes.docker.internal:60003/repository/github-releases/</url>
 		</repository>
 	</repositories>
 </project>
